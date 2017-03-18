@@ -25,25 +25,66 @@ public class DDCountInversion {
 		setNumeros(n);
 	}
 	
-	//Setters y getters
+	
+	/**
+	 * Funcion que devuelve el arraylist con todos los numeros.
+	 * @return
+	 */
+	
 	public ArrayList<Integer> getNumeros(){
 		return numeros;
 	}
+	
+	/**
+	 * Funcion que permiite cambiar el tamaño del arraylist
+	 * @param n
+	 */
+	
 	public void setNumeros(ArrayList<Integer> n){
 		numeros = n;
 	}
+	
+	/**
+	 * Algoritmo que devuelve un numero del array list dependiendo del indice 
+	 * @param index variable que indica la celda que devuelve el numero
+	 * @return
+	 */
+	
 	public int getNumero(int index){
 		return numeros.get(index);
 	}
+	
+	/**
+	 * Algoritmo para cambiar la celda dependiendo del indice
+	 * @param index variable que indica el numero 
+	 * @param value
+	 */
+	
 	public void setNumero(int index, int value){
 		numeros.set(index, value);
 	}
+	
+	/**
+	 * añadir un numero al final de la lista
+	 * @param n
+	 */
+	
 	public void add(int n){
 		numeros.add(n);
 	}
+	
+	/**
+	 * Funcion que devuele la cantidad de inversiones 
+	 * @return
+	 */
 	public int getInversiones(){
 		return inversiones;
 	}
+	
+	/**
+	 * Funcion setter que modifica el valor de inversiones
+	 * @param n
+	 */
 	public void setInversiones(int n){
 		inversiones = n;
 	}
@@ -57,6 +98,8 @@ public class DDCountInversion {
 	 * 
 	 * @return
 	 */
+	
+	
 	private ArrayList<Integer> countStep(ArrayList<Integer> lista, int izquierda, int derecha){
 		ArrayList<Integer> result = new  ArrayList<Integer>();
 		
@@ -87,21 +130,29 @@ public class DDCountInversion {
 			}
 		}
 		//añadimos los que sobran si sobran por algun lado
-		while(j<derecha){
+		while(j < derecha){
 			result.add(derecha.get(j));
 			j++;
 		}
-		while(i<mid){
+		while(i < mid){
 			result.add(izquierda.get(i));
 			i++;
 		}
 		return result;
 	}
 	
-	//este es el metodo que devemos invocar tras crear la clase.
+	/**
+	 * este es el metodo que devemos invocar tras crear la clase.
+	 * 
+	 * @return
+	 */
 	public int countInversion(){
 		setInversiones(0);
 		numeros = countStep(numeros, 0, numeros.size()-1);
 		return getInversiones();
 	}
+	
+	
+	
+	
 }
