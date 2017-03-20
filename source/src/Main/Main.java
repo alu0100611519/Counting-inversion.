@@ -18,9 +18,16 @@ import java.util.*;
 public class Main {
 	public static void main(String args[]){
 		ArrayList<Integer> numeros = new ArrayList<Integer>();
-		for(String s : args){
-			numeros.add(Integer.parseInt(s));
+		Random rnd = new Random();
+		rnd.setSeed(370);
+		for(int i = 0 ; i < 100 ; i++){
+			
+			numeros.add((int)(rnd.nextDouble() * 100));
+			System.out.println("numero: " + numeros.get(i));
 		}
+		
+		
+		
 		BruteForceCI brute = new BruteForceCI(numeros);
 		DDCountInversion dd = new DDCountInversion(numeros);
 		
